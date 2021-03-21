@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-card>
+      <ion-card-header>
+        <img src="assets/icon/money-SA.jpeg" alt="">
+
+      </ion-card-header>
+      <div class="login">
+        <p>Login</p>
+      </div>
+    </ion-card>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="success" expand="block">Se connecter</ion-button>
+        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

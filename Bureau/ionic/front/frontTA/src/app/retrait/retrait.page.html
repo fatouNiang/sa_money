@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-card>
+      <ion-card-header>
+        <ion-row class="ion-align-items-start">
+          <ion-col>
+            <a routerLink="/tabs/navigate"><ion-icon name="home"></ion-icon></a>
+          </ion-col>
+          <ion-col>
+            <img src="assets/icon/money-SA2.jpeg" alt="" width="40" height="40">
+          </ion-col>
+        </ion-row>
+
+      </ion-card-header>
+      <div class="retrait">
+        <p>Retrait</p>
+      </div>
+
+
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+
+    <ion-label position="floating">Code</ion-label>
+    <ion-input #valueCode (change)="rechercher(valueCode.value)"  type="text"></ion-input>
+  </ion-item>
+
+  <ion-segment [(ngModel)]="segmentChang">
+
+    <ion-segment-button value="beneficiaire">
+      <ion-label>Beneficiare</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="emetteur">
+      <ion-label>Emetteur</ion-label>
+    </ion-segment-button>
+
+
+  </ion-segment>
+  <form [formGroup]="formRetrait" (ngSubmit)="onSubmit()">
+    <div *ngIf="segmentChang=='beneficiaire'">
+
+      <section >
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input type="text" formControlName="cni"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">NomComplet</ion-label>
+          <ion-input type="text" [value]="infos.nomClientRetrait" disabled></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Telephone</ion-label>
+          <ion-input type="text"[value]="infos.telephoneClientRetrait" disabled></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Montant</ion-label>
+          <ion-input type="text" [value]="infos.montant" disabled></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating"></ion-label>
+          <ion-input type="text" name="cni"></ion-input>
+        </ion-item>
+      </section>
+    </div>
+    <div *ngIf="segmentChang=='emetteur'">
+      <section  >
+
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input type="text" [value]="infos?.cniClientDepot" disabled></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">NomComplet</ion-label>
+          <ion-input type="text" [value]="infos?.nomClientDepot" disabled></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="floating">Telephone</ion-label>
+          <ion-input type="text" [value]="infos?.telephoneClientDepot" disabled></ion-input>
+        </ion-item>
+
+      </section>
+     <div>
+       <div>
+        <ion-button type="submit" color="danger" >Retirer</ion-button>
+       </div>
+
+     </div>
+    </div>
+  </form>
+
+</ion-content>
+

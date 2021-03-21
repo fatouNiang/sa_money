@@ -1,0 +1,7 @@
+{
+  "name": "frontTA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

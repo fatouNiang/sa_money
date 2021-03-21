@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-card>
+      <ion-card-header>
+        <ion-row class="ion-align-items-start">
+          <ion-col>
+            <a routerLink="/tabs/navigate"><ion-icon name="home"></ion-icon></a>
+          </ion-col>
+          <ion-col>
+            <img src="assets/icon/money-SA2.jpeg" alt="" width="40" height="40">
+          </ion-col>
+        </ion-row>
+
+      </ion-card-header>
+      <div class="depot">
+        <p>Depot</p>
+      </div>
+
+      <ion-segment [(ngModel)]="segmentChang">
+
+        <ion-segment-button value="emetteur">
+          <ion-label><ion-icon name="refresh"></ion-icon>Emetteur</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="beneficiaire">
+          <ion-label> <ion-icon name="reload-circle"></ion-icon>Beneficiare</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formDepot" (ngSubmit)="depot()">
+
+    <div *ngIf="segmentChang=='emetteur'">
+      <section formGroupName="clientDepot">
+        <ion-item lines="full">
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input type="text" formControlName="CNI" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">NomComplet</ion-label>
+          <ion-input type="text" formControlName="nomComplet" name="nomComplet" required></ion-input>
+        </ion-item>
+
+
+        <ion-item lines="full">
+          <ion-label position="floating">Telephone</ion-label>
+          <ion-input type="text" formControlName="telephone" name="telephone"  required></ion-input>
+        </ion-item>
+      </section>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Montant</ion-label>
+        <ion-input #montantValue (ionChange)="getFrais(montantValue.value)" type="number" formControlName="montant" name="montant"  required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">frais</ion-label>
+        <ion-input type="number" [value]="frais" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Total</ion-label>
+        <ion-input type="number" required></ion-input>
+      </ion-item>
+
+    </div>
+
+
+    <div *ngIf="segmentChang=='beneficiaire'">
+
+      <section formGroupName="clientRetrait">
+        <ion-item lines="full">
+          <ion-label position="floating">NomComplet</ion-label>
+          <ion-input type="text" formControlName="nomComplet" name="nomComplet"  required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Telephone</ion-label>
+          <ion-input type="text" formControlName="telephone" name="telephone"  required></ion-input>
+        </ion-item>
+      </section>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="danger" expand="block">Suivant</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+</form>
+
+</ion-content>

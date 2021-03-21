@@ -1,0 +1,115 @@
+<ion-app>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar translucent>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="home" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="paper-plane" slot="start"></ion-icon>
+          <ion-label>Transactions</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="heart" slot="start"></ion-icon>
+          <ion-label>Commissions</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="archive" slot="start"></ion-icon>
+          <ion-label>calculatrice</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="archive" slot="start"></ion-icon>
+          <ion-label>Deconnexion</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <!-- <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons> -->
+            <ion-card>
+              <ion-card-header>
+                <ion-row>
+                  <ion-col class="ion-align-self-start">
+                    <ion-menu-button></ion-menu-button>
+
+                  </ion-col>
+                  <ion-col class="ion-align-self-center">
+                    <img src="assets/icon/money-SA2.jpeg" alt="" width="30" height="30">
+
+                  </ion-col>
+                  <ion-col class="ion-align-self-end">
+                    <img src="assets/icon/login.png" alt="" class="img-login">
+
+                  </ion-col>
+
+                </ion-row>
+              </ion-card-header>
+
+              <ion-item class="textarea">
+                <ion-label position="stacked">Mon solde disponible</ion-label>
+                <ion-textarea
+                  disabled
+                  readonly
+                  value="1500000 CFA">
+                </ion-textarea>
+
+              </ion-item>
+            </ion-card>
+          </ion-toolbar>
+
+        </ion-header>
+
+    <ion-content class="ion-padding">
+
+          <ion-list>
+            <ion-item (click)="getDepot()">
+              <ion-text >
+                <ion-icon name="arrow-redo"></ion-icon>
+                Depot</ion-text>
+            </ion-item>
+            <ion-item (click)="getRetrait()">
+              <ion-text><ion-icon name="arrow-undo"></ion-icon>
+                Retrait</ion-text>
+            </ion-item>
+            <ion-item (click)="getAnnulation()">
+              <ion-text><ion-icon name="arrow-undo"></ion-icon>
+                Annulation Depot</ion-text>
+            </ion-item>
+            <ion-item (click)="getTransactions()">
+              <ion-text><ion-icon name="sync"></ion-icon>
+                Mes Transactions</ion-text>
+            </ion-item>
+            <ion-item (click)="getTransactions()">
+              <ion-text><ion-icon name="checkmark-done-circle"></ion-icon>
+                Toutes mes transactions</ion-text>
+            </ion-item>
+
+            <ion-item (click)="getCommission()">
+              <ion-text><ion-icon name="barcode"></ion-icon>
+                Mes commissions</ion-text>
+            </ion-item>
+
+            <ion-item (click)="getCalculatrice()">
+
+                <ion-text><ion-icon name="calculator"></ion-icon>
+                Calculateurs de frais</ion-text>
+            </ion-item>
+            <ion-item (click)="logout()">
+              <ion-icon name="power"></ion-icon>
+              <ion-text>Deconnexion</ion-text>
+            </ion-item>
+          </ion-list>
+
+    </ion-content>
+  </div>
+</ion-app>

@@ -1,0 +1,25 @@
+
+ion-content{
+  background-color: #51c3d4;
+}
+.img-login{
+  width: 30px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+.textarea{
+  border-bottom: 2px solid #51c3d4;
+  border-right:  2px solid #51c3d4;
+  border-radius: 20%;
+}
+
+ion-list{
+  ion-item{
+    border-bottom: 1px solid #ff1a00;
+  }
+}
+ion-icon {
+  color:#ff1a00;
+  --ionicon-stroke-width: 16px;
+}
