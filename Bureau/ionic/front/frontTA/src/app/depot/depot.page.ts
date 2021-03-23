@@ -27,20 +27,16 @@ export class DepotPage implements OnInit {
   ngOnInit() {
     this.formDepot= this.forBuilder.group({
       montant: ['',Validators.required],
-
       clientDepot: this.forBuilder.group({
         nomComplet: ["", Validators.required],
         telephone: ["", Validators.required],
         CNI: ["", Validators.required],
-
       }),
-
       clientRetrait: this.forBuilder.group({
         nomComplet: ["", Validators.required],
         telephone: ["", Validators.required],
       }),
       type: ['depot',Validators.required]
-
     })
   }
 
@@ -95,8 +91,7 @@ export class DepotPage implements OnInit {
       ]
     });
     await alert.present();
-
-     }
+}
 
      getFrais(montant:number){
       montant = Number(montant);

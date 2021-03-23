@@ -13,14 +13,15 @@
 <ion-content>
   <ion-row >
     <ion-col>Date</ion-col>
-    <ion-col>type</ion-col>
+    <ion-col>Type</ion-col>
     <ion-col>Montant</ion-col>
+    <ion-col>Frais</ion-col>
   </ion-row>
-  <ion-row >
-    <ion-col>a</ion-col>
-    <ion-col>b</ion-col>
-    <ion-col>c</ion-col>
+  <ion-row *ngFor="let transaction of transactions; index as i">
+    <ion-col>{{ transaction.dateDepot | date : "dd.MM.y" }}</ion-col>
+    <ion-col>{{ transaction.type }}</ion-col>
+    <ion-col>{{ transaction.montant }}</ion-col>
+    <ion-col>{{ transaction.frais }}</ion-col>
   </ion-row>
-
 
 </ion-content>

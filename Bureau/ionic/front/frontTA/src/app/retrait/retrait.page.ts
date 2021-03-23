@@ -57,6 +57,7 @@ export class RetraitPage implements OnInit {
             {
               text: 'Annuler',
               handler: () => {}
+              
             },
             {
               text: 'OUI',
@@ -90,7 +91,7 @@ export class RetraitPage implements OnInit {
               }
             }
           ]
-    })
+    });
 
     await alert.present();
   }

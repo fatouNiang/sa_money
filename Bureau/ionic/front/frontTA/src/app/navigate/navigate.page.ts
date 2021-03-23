@@ -20,20 +20,16 @@ export class NavigatePage implements OnInit {
    private nav: NavController,
   private authService: AuthService,
   private depoService: DepotService,
-  private route: ActivatedRoute) { }
+) { }
 
   ngOnInit() {
     this.getSolde();
   }
+
   getSolde(){
-    // this.id = this.route.snapshot.paramMap.get('id'); // il permet recuperer la valeur de l'id
-
-    // console.log(this.depoService.getCompte(this.id) );
-
-    // this.depoService.getCompte(this.id)
-    //   .subscribe((data) => {
-    //     console.log(data['data']);
-    //     this.solde = data['data']});
+    this.depoService.getSolde().subscribe((data)=>{
+      console.log(data);
+     this.solde=data})
   }
 
   getDepot(){

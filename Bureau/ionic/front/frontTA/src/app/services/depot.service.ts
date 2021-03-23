@@ -22,9 +22,9 @@ export class DepotService {
   //   return this.http.get(`${environment.apiUrl}/comptes`+ id)
   // }
 
-  // getSolde(): Observable<any>{
-  //   return this.http.get<any[]>(`${environment.apiUrl}/comptes`);
-  // }
+  getSolde(): Observable<any>{
+    return this.http.get<any[]>(`${environment.apiUrl}/users/comptes/curentUser`);
+  }
 
 max_array = [5000, 10000, 15000, 20000, 50000,60000,75000,120000,150000,200000,250000,
     300000,400000,750000,900000,1000000,1125000,1400000,2000000];
