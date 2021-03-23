@@ -8,14 +8,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ComptController extends AbstractController
 {
-    /**
-     * @Route("/compt", name="getSold")
-     */
-    public function index(): Response
-    {
-        return $this->render('compt/index.html.twig', [
-            'controller_name' => 'ComptController',
-        ]);
-    }
+    // /**
+    //  * @Route("/api/comptes/curentUser", name="getSolde", methods={"GET"})
+    //  */
+    // public function getSolde(): Response
+    // {
+    //     $userConnect= $this->getUser();
+    //     //dd($userConnect);
+    //      $compt= $userConnect->getAgence();
+    //      //dd($compt);
+    //     $compt= $userConnect->getAgence()->getCompte();
+    //     dd($compt);
+    //     return $this->json($userConnect, 200, [], ["groups"=>["getSolde"]] );
+    //    // return $this->json($userConnect,200  );
+
+    // }
 
 }

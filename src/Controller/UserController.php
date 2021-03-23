@@ -116,5 +116,16 @@ class UserController extends AbstractController
         }
      }
      
-     
+     /**
+     * @Route("/api/users/comptes/curentUser", name="getSolde", methods={"GET"})
+     */
+    public function getSolde(SerializerInterface $serialize): Response
+    {
+        $userConnect= $this->getUser();
+        $compt= $userConnect->getAgence()->getCompte()->getMontant();
+        $solde= $serialize->serialize($userConnect, "json");
+       // $this->userService->sendSMS();
+        return $this->json($compt, 200);
+
+    } 
 } 

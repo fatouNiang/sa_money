@@ -35,7 +35,6 @@ class TransactionController extends AbstractController
         $user_depot= $this->getUser();
         
         $compte= $user_depot->getAgence()->getCompte();
-       // dd($compte);
         $data= \json_decode($request->getContent(), true);
 
         if($data['type'] === 'depot'){
@@ -52,10 +51,9 @@ class TransactionController extends AbstractController
             $transaction->setCode($userService->CreerMatricule($data["clientDepot"]["nomComplet"]));
             $compte->setMontant($compte->getMontant() - $transaction->getMontant());
             $transaction->setType("depot");
-            //dd($compte);
-           // dd($transaction);
 
             $em->persist($transaction);
+            $userService->sendSMS($transaction->getMontant(), $transaction->getClientDepot()->getNomComplet(), $transaction->getCode());
             $em->flush();
     
             return $this->json([
@@ -153,4 +151,39 @@ class TransactionController extends AbstractController
         }
     }
 
+    /**
+     * @Route("/api/transaction/commissions" , name="commission", methods={"GET"})
+     */
+
+     public function commission(){
+
+        $transaction= $this->transactionRepo->findAll();
+        //dd($transaction);
+         $userCurent= $this->getUserDepot();
+         dd($userCurent);
+        //  $transaction= $userCurent->getTransactions();
+        //  dd($transaction);
+
+        //  return $this->json($transaction, 200);
+
+
+     }
+
+
+    /**
+     * @Route("/api/transaction/mesTransactions" , name="mesTransactions", methods={"GET"})
+     */
+
+    public function MesTransaction(){
+
+        $transaction= $this->transactionRepo->findAll();
+        //dd($transaction);
+         $userCurent= $this->getUserDepot();
+         dd($userCurent);
+
+
+          return $this->json($transaction, 200);
+
+
+     }
 }

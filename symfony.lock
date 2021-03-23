@@ -298,6 +298,9 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "v5.2.4"
+    },
     "symfony/http-client-contracts": {
         "version": "v2.3.1"
     },
@@ -458,6 +461,9 @@
     },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "twilio/sdk": {
+        "version": "6.19.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"

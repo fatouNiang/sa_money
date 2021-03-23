@@ -10,7 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *  normalizationContext={"groups"={"agence:read"}},)
  * @ORM\Entity(repositoryClass=AgenceRepository::class)
  */
 class Agence
@@ -24,19 +25,19 @@ class Agence
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"compte:write", "compte:read"})
+     * @Groups({"compte:write", "compte:read","agence:read"})
      */
     private $nomAgence;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"compte:write", "compte:read"})
+     * @Groups({"compte:write", "compte:read", "user:read","agence:read"})
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups({"compte:write", "compte:read"})
+     * @Groups({"compte:write", "compte:read", "user:read"})
      */
     private $archivage=false;
 
